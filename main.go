@@ -141,10 +141,9 @@ func main() {
 	// Register the defatult route to /ws, and use the wsHandler method
 	http.HandleFunc("/ws", wsHandler)
 	http.HandleFunc("/health", healthHandler)
-	// Surveying cross-domain problems
-	// CheckOrigin: func(r *http.Request) bool {
-	// 	return true
-	// },
+	fmt.Println("chat server start.....")
+	_ = http.ListenAndServe("0.0.0.0:8448", nil)
+
 }
 
 func wsHandler(res http.ResponseWriter, req *http.Request) {
